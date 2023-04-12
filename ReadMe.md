@@ -12,7 +12,7 @@ Simple example of executing Python as Batch Tasks.
 winserver-2019.
 * Create config.py with the following values in the directory of the Orchestration script
 
-# Example
+# Example config.py
 
 ```python
 BATCH_ACCOUNT_NAME = ''  # Your batch account name
@@ -26,7 +26,7 @@ CLIENT_ID = '' # User Managed Identity Client ID
 STORAGE_ACCOUNT = '' # Name of storage account
 STORAGE_CONTAINER = '' # Name of storage account container with files
 ```
-# Example
+# Example run of orchestrator.py
 
 ```python
 pip install -r requirements.txt
