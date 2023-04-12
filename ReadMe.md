@@ -31,4 +31,4 @@ pip install -r requirements.txt
 python .\orchestrator.py jobname file.txt file2.txt file3.txt
 ```
 
-This will create a job and 3 tasks associated.  The nodes will run storage.py and copy the files to an output folder on the same container.  
+This will create a job and 3 tasks associated.  The nodes will run storage.py and copy the files to an output folder on the same container.  In this example, file.txt, file2.txt, and file3.txt would need to be in the root of the storage container for the tasks to succeed.    
