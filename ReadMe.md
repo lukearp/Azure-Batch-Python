@@ -7,7 +7,7 @@ Simple example of executing Python as Batch Tasks.
 * Azure Storage Account with Hierarchical Namespaces (Data Lake) enabled.
 * Storage container provisioned on the storage account with files in the root of the container.
 * User Managed Identity with Blob Data Contributor permisions to the Data Lake.
-* Azure Batch Pool created with the User Managed Identity and referencines setup.ps1. as a Start Task Example: powershell .\setup.ps1
+* Azure Batch Pool created with the User Managed Identity and references setup.ps1. as a Start Task Example: powershell .\setup.ps1
   * Image used for Batch Pool is: Publisher = microsoft-dsvm, Offer = dsvm-win-2019, and Sku = 
 winserver-2019.
 * Create config.py with the following values in the directory of the Orchestration script
