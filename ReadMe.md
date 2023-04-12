@@ -4,7 +4,7 @@ Simple example of executing Python as Batch Tasks.
 
 # What is required? 
 
-* Azure Storage Account with Hierarchical Namespaces enabled.
+* Azure Storage Account with Hierarchical Namespaces (Data Lake) enabled.
 * Storage container provisioned on the storage account with files in the root of the container.
 * User Managed Identity with Blob Data Contributor permisions to the Data Lake.
 * Azure Batch Pool created with the User Managed Identity and referencines setup.ps1. as a Start Task Example: powershell .\setup.ps1
