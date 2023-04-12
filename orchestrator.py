@@ -122,8 +122,8 @@ def create_job(batch_service_client: BatchManagementClient, job_id: str, pool_id
 
     batch_service_client.job.add(job)
 
-def add_tasks(batch_service_client: BatchServiceClient, job_id: str,fileName: str):
-    command=f"python -c \"import os;import subprocess;os.chdir(os.environ.get('AZ_BATCH_NODE_SHARED_DIR') + '\\Azure-Batch-Python');subprocess.call('git pull');os.system('python storage.py {fileName}')\""
+def add_tasks(batch_service_client: BatchServiceClient, job_id: str,fileName: str, storage_account: str, storage_container: str, client_id: str):
+    command=f"python -c \"import os;import subprocess;os.chdir(os.environ.get('AZ_BATCH_NODE_SHARED_DIR') + '\\Azure-Batch-Python');subprocess.call('git pull');os.system('python storage.py {storage_account} {storage_container} {client_id} {fileName}')\""
     batch_service_client.task.add(job_id, taskbatch.TaskAddParameter(command_line=command,id=fileName.split(".")[0]))
 
 def wait_for_tasks_to_complete(batch_service_client: BatchServiceClient, job_id: str,
@@ -171,6 +171,6 @@ create_job(batch_service,sys.argv[1],config.POOL_ID)
 
 #create_pool(batch_client, config.POOL_ID,resourceFiles)
 for x in sys.argv[2:]:
-  add_tasks(batch_service,sys.argv[1],x)
+  add_tasks(batch_service,sys.argv[1],x,config.STORAGE_ACCOUNT,config.STORAGE_CONTAINER,config.CLIENT_ID)
 
 wait_for_tasks_to_complete(batch_service,sys.argv[1],datetime.timedelta(minutes=30))
